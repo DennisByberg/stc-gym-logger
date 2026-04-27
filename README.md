@@ -10,8 +10,15 @@ stc-gym-logger/
     mobile/          # Ionic, Angular and Capacitor mobile app
     api/             # ASP.NET Core Web API
   infrastructure/    # Docker, Kubernetes, Azure and CI/CD configuration
-  docs/              # Project plan, notes and documentation
+  docs/              # Developer documentation and useful commands
   README.md
+```
+
+## ✅ Current Status
+
+```text
+Frontend scaffolded with Ionic + Angular
+PWA support added with manifest, icons and service worker configuration
 ```
 
 ## 🧰 Tech Stack
@@ -61,4 +68,4 @@ PostgreSQL via Docker Compose
 ## 📚 Documentation
 
 - [Developer setup](docs/developer-setup.md)
-- [Useful commands](docs/useful-commands.md)
+- [Daily workflow commands](docs/daily-workflow-commands.md)

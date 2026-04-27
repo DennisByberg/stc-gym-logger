@@ -57,4 +57,4 @@ Stop the development server with `Ctrl+C`.
 
 ## 📝 Note
 
-_This command list will be updated as more tools and workflows are added to the project..._
+_This setup guide will be updated as more parts of the project are added..._
