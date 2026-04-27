@@ -16,13 +16,6 @@ stc-gym-logger/
   README.md
 ```
 
-## ✅ Current Status
-
-```text
-Frontend scaffolded with Ionic + Angular
-PWA support added with manifest, icons and service worker configuration
-```
-
 ## 🧰 Tech Stack
 
 ### Frontend
