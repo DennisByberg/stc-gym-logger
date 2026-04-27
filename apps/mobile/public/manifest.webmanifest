@@ -1,6 +1,6 @@
 {
-  "name": "app",
-  "short_name": "app",
+  "name": "STC Gym Logger",
+  "short_name": "STC Gym",
   "display": "standalone",
   "scope": "./",
   "start_url": "./",

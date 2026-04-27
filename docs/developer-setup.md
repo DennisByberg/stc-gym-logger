@@ -84,6 +84,12 @@ http://localhost:5173/health
 
 Health check endpoint.
 
+```bash
+dotnet ef database update
+```
+
+Applies EF Core migrations to the local PostgreSQL database.
+
 ## 📱 Run the Mobile App
 
 ```bash

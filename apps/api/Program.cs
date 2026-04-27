@@ -1,25 +1,21 @@
+using api.Data;
+using Microsoft.EntityFrameworkCore;
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
 builder.Services.AddOpenApi();
+
+builder.Services.AddDbContext<AppDbContext>(options =>
+  options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+  app.MapOpenApi();
 }
 
-app.MapGet("/", () => Results.Ok(new
-{
-    name = "STC Gym Logger API",
-    status = "Running"
-}))
-.WithName("GetApiStatus");
-
-app.MapGet("/health", () => Results.Ok(new
-{
-    status = "Healthy"
-}))
-.WithName("GetHealth");
+app.MapControllers();
 
 app.Run();
