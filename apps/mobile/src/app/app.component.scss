@@ -1,0 +1,14 @@
+:host {
+  display: block;
+  position: relative;
+  width: min(100%, 430px);
+  min-height: 100vh;
+  margin: 0 auto;
+  background: #090711;
+}
+
+ion-app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}

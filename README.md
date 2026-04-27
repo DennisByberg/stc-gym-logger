@@ -1,3 +1,5 @@
+![STC Gym Logger banner](apps/mobile/src/assets/logo/stc-gym-logger-banner.png)
+
 # 🏋️ STC Gym Logger
 
 Mobile-first gym workout logger built with Ionic, Angular, ASP.NET Core, PostgreSQL, Docker, Kubernetes, Azure and CI/CD.
