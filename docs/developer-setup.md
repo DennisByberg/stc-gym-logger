@@ -1,10 +1,8 @@
 # 🛠️ Developer Setup
 
-This guide explains how to set up the project locally and run the mobile app during development.
+Minimal local setup for STC Gym Logger.
 
 ## ✅ Install Required Tools
-
-Install these tools before working on the project:
 
 ```text
 Git
@@ -13,48 +11,84 @@ Node.js + npm
 Ionic CLI
 .NET SDK
 Docker Desktop / Docker in WSL
+DataGrip, optional for database browsing
 ```
-
-The Ionic CLI is used to run and manage the mobile app. Install it globally if it is not already installed:
 
 ```bash
 npm install -g @ionic/cli
 ```
 
-## 📦 Clone the Repository
+Installs the Ionic CLI used by `apps/mobile`.
 
-Clone the project from GitHub and move into the repository folder:
+## 📦 Clone the Repository
 
 ```bash
 gh repo clone DennisByberg/stc-gym-logger
 cd stc-gym-logger
 ```
 
-## 📥 Install Frontend Dependencies
+Clones the repository and enters the project root.
 
-The mobile app lives in `apps/mobile`. Install its npm dependencies before running it:
+## 📥 Install Frontend Dependencies
 
 ```bash
 cd apps/mobile
 npm install
 ```
 
-## 📱 Run the Mobile App
+Installs dependencies for the Ionic/Angular app.
 
-Start the Ionic development server from `apps/mobile`:
+## 🗄️ Start Local PostgreSQL
 
 ```bash
+cd ../..
+docker compose up -d
+```
+
+Starts the local PostgreSQL database from `docker-compose.yml`.
+
+```text
+Host: localhost
+Port: 5432
+Database: stc_gym_logger
+User: gymuser
+Password: gympass
+```
+
+DataGrip connection values.
+
+```bash
+docker compose down
+```
+
+Stops PostgreSQL without deleting data.
+
+```bash
+docker compose down -v
+```
+
+Stops PostgreSQL and deletes the local database volume.
+
+## 🧩 Run the API
+
+```bash
+cd apps/api
+dotnet run
+```
+
+Starts the ASP.NET Core API at `http://localhost:5173`.
+
+```text
+http://localhost:5173/health
+```
+
+Health check endpoint.
+
+## 📱 Run the Mobile App
+
+```bash
+cd apps/mobile
 ionic serve
 ```
 
-The app should now be available at:
-
-```text
-http://localhost:8100
-```
-
-Stop the development server with `Ctrl+C`.
-
-## 📝 Note
-
-_This setup guide will be updated as more parts of the project are added..._
+Starts the Ionic app at `http://localhost:8100`.

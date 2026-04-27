@@ -1,28 +1,47 @@
 # 🧾 Daily Workflow Commands
 
-A small collection of commands used regularly while developing this project.
-
-This file is meant for recurring workflow commands, not one-time setup commands.
+Recurring commands used while developing the project.
 
 ## 📱 Ionic / Angular
-
-### Start the mobile app locally
-
-Run this from the Ionic app directory:
 
 ```bash
 cd apps/mobile
 ionic serve
 ```
 
-This starts the development server for the mobile frontend.
+Starts the mobile frontend at `http://localhost:8100`.
 
-Default local URL:
+## 🧩 ASP.NET Core API
 
-```text
-http://localhost:8100
+```bash
+cd apps/api
+dotnet run
 ```
 
-## 📝 Note
+Starts the API at `http://localhost:5173`.
 
-_This command list will be updated as more daily workflows are added to the project..._
+```bash
+curl http://localhost:5173/health
+```
+
+Checks that the API is responding.
+
+## 🗄️ PostgreSQL
+
+```bash
+docker compose up -d
+```
+
+Starts the local PostgreSQL database.
+
+```bash
+docker compose down
+```
+
+Stops the local PostgreSQL database without deleting data.
+
+```bash
+docker ps
+```
+
+Lists running Docker containers.
