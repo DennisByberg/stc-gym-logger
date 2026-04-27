@@ -65,3 +65,4 @@ PostgreSQL via Docker Compose
 
 - [Developer setup](docs/developer-setup.md)
 - [Daily workflow commands](docs/daily-workflow-commands.md)
+- [Exercise model](docs/models/exercises.md)

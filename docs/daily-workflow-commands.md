@@ -26,6 +26,18 @@ curl http://localhost:5173/health
 
 Checks that the API is responding.
 
+```bash
+dotnet ef migrations add <Name>
+```
+
+Creates a new EF Core migration.
+
+```bash
+dotnet ef database update
+```
+
+Applies EF Core migrations to PostgreSQL.
+
 ## 🗄️ PostgreSQL
 
 ```bash
