@@ -1,0 +1,15 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: stc-gym-postgres
+    environment:
+      POSTGRES_USER: gymuser
+      POSTGRES_PASSWORD: gympass
+      POSTGRES_DB: stc_gym_logger
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:

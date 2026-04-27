@@ -13,6 +13,7 @@ stc-gym-logger/
     api/             # ASP.NET Core Web API
   infrastructure/    # Docker, Kubernetes, Azure and CI/CD configuration
   docs/              # Developer documentation and useful commands
+  docker-compose.yml # Local PostgreSQL database
   README.md
 ```
 
