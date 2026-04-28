@@ -11,6 +11,26 @@ ionic serve
 
 Starts the mobile frontend at `http://localhost:8100`.
 
+## 🧩 Backend and Database
+
+```bash
+docker compose up -d
+```
+
+Starts the API and PostgreSQL.
+
+```bash
+curl http://localhost:5173/api/health
+```
+
+Checks that the API is responding.
+
+```bash
+docker compose down
+```
+
+Stops the API and PostgreSQL without deleting data.
+
 ## 🧩 ASP.NET Core API
 
 ```bash
@@ -18,13 +38,7 @@ cd apps/api
 dotnet run
 ```
 
-Starts the API at `http://localhost:5173`.
-
-```bash
-curl http://localhost:5173/health
-```
-
-Checks that the API is responding.
+Optional manual API run for local debugging outside Docker.
 
 ```bash
 dotnet ef migrations add <Name>
@@ -39,18 +53,6 @@ dotnet ef database update
 Applies EF Core migrations to PostgreSQL.
 
 ## 🗄️ PostgreSQL
-
-```bash
-docker compose up -d
-```
-
-Starts the local PostgreSQL database.
-
-```bash
-docker compose down
-```
-
-Stops the local PostgreSQL database without deleting data.
 
 ```bash
 docker ps

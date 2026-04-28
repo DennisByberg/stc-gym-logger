@@ -38,14 +38,21 @@ npm install
 
 Installs dependencies for the Ionic/Angular app.
 
-## 🗄️ Start Local PostgreSQL
+## 🗄️ Start Local Backend and PostgreSQL
 
 ```bash
 cd ../..
 docker compose up -d
 ```
 
-Starts the local PostgreSQL database from `docker-compose.yml`.
+Starts the ASP.NET Core API and local PostgreSQL database from `docker-compose.yml`.
+
+```text
+API: http://localhost:5173
+Health: http://localhost:5173/api/health
+```
+
+The API runs EF Core migrations automatically when started through Docker Compose.
 
 ```text
 Host: localhost
@@ -61,13 +68,13 @@ DataGrip connection values.
 docker compose down
 ```
 
-Stops PostgreSQL without deleting data.
+Stops the API and PostgreSQL without deleting data.
 
 ```bash
 docker compose down -v
 ```
 
-Stops PostgreSQL and deletes the local database volume.
+Stops the API and PostgreSQL and deletes the local database volume.
 
 ## 🧩 Run the API
 
@@ -76,10 +83,10 @@ cd apps/api
 dotnet run
 ```
 
-Starts the ASP.NET Core API at `http://localhost:5173`.
+Optional manual API run for local debugging outside Docker.
 
 ```text
-http://localhost:5173/health
+http://localhost:5173/api/health
 ```
 
 Health check endpoint.
