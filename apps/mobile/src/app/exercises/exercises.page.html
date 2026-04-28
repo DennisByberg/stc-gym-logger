@@ -1,0 +1,54 @@
+<ion-content [fullscreen]="true">
+  <main class="exercises-page">
+    @if (isLoading()) {
+      <section class="state" aria-live="polite">
+        <ion-spinner name="crescent"></ion-spinner>
+        <ion-text>Loading exercises</ion-text>
+      </section>
+    } @else if (errorMessage()) {
+      <section class="state" aria-live="polite">
+        <ion-text color="danger">{{ errorMessage() }}</ion-text>
+        <ion-button fill="outline" size="small" (click)="loadExercises()">
+          Retry
+        </ion-button>
+      </section>
+    } @else if (exercises().length === 0) {
+      <section class="state">
+        <ion-text>No exercises yet.</ion-text>
+      </section>
+    } @else {
+      <ion-list class="exercise-list" lines="none">
+        @for (exercise of exercises(); track exercise.id) {
+          <ion-item class="exercise-row" button detail="false">
+            <ion-thumbnail slot="start" class="exercise-image">
+              <img
+                [src]="imageUrl(exercise)"
+                [alt]="exercise.name"
+                loading="lazy"
+                (error)="useFallbackImage($event)"
+              />
+            </ion-thumbnail>
+
+            <ion-label class="exercise-copy">
+              <h2>{{ exercise.name }}</h2>
+
+              @if (exercise.description) {
+                <p>{{ exercise.description }}</p>
+              } @else {
+                <p>No details added yet</p>
+              }
+
+              @if (exercise.muscleGroups.length > 0) {
+                <div class="muscle-groups" aria-label="Muscle groups">
+                  @for (muscleGroup of exercise.muscleGroups; track muscleGroup) {
+                    <ion-chip>{{ muscleGroup }}</ion-chip>
+                  }
+                </div>
+              }
+            </ion-label>
+          </ion-item>
+        }
+      </ion-list>
+    }
+  </main>
+</ion-content>

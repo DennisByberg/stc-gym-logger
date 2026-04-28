@@ -1,3 +1,43 @@
 <ion-app>
   <ion-router-outlet></ion-router-outlet>
+
+  @if (!isMenuOpen()) {
+    <header class="app-header">
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Open menu"
+        (click)="openMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
+  }
+
+  @if (isMenuOpen()) {
+    <div class="menu-overlay">
+      <button
+        class="back-button"
+        type="button"
+        aria-label="Close menu"
+        (click)="closeMenu()"
+      >
+        <ion-icon name="chevron-back" aria-hidden="true"></ion-icon>
+        Back
+      </button>
+
+      <nav class="mobile-nav" aria-label="Main navigation">
+        <a routerLink="/home" (click)="closeMenu()">
+          Home
+          <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+        </a>
+        <a routerLink="/exercises" (click)="closeMenu()">
+          Exercises
+          <ion-icon name="chevron-forward" aria-hidden="true"></ion-icon>
+        </a>
+      </nav>
+    </div>
+  }
 </ion-app>

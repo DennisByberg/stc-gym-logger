@@ -1,14 +1,99 @@
 :host {
   display: block;
   position: relative;
-  width: min(100%, 430px);
   min-height: 100vh;
-  margin: 0 auto;
   background: #090711;
 }
 
 ion-app {
   position: relative;
   min-height: 100vh;
-  overflow: hidden;
+}
+
+.app-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  background: transparent;
+  z-index: 1000;
+}
+
+.menu-button {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  display: grid;
+  gap: 5px;
+  width: 42px;
+  height: 42px;
+  place-content: center;
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+
+.menu-button span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  border-radius: 999px;
+  background: #ffffff;
+}
+
+.menu-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background: #090711;
+  z-index: 1100;
+}
+
+.back-button {
+  position: absolute;
+  top: 16px;
+  left: 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 42px;
+  padding: 0 10px;
+  border: 0;
+  background: transparent;
+  color: #ffffff;
+  font: inherit;
+  font-size: 16px;
+}
+
+.back-button ion-icon {
+  font-size: 18px;
+}
+
+.mobile-nav {
+  display: grid;
+  gap: 22px;
+  justify-items: center;
+  text-align: center;
+}
+
+.mobile-nav a {
+  position: relative;
+  display: block;
+  width: 220px;
+  padding: 0 34px;
+  color: #ffffff;
+  font-size: 26px;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.mobile-nav ion-icon {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  color: #ffffff;
+  font-size: 22px;
+  transform: translateY(-50%);
 }

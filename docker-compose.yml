@@ -1,4 +1,25 @@
 services:
+  api:
+    build:
+      context: ./apps/api
+    container_name: stc-gym-api
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ASPNETCORE_URLS: http://+:8080
+      ApplyMigrations: "true"
+      ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=stc_gym_logger;Username=gymuser;Password=gympass
+    healthcheck:
+      test:
+        ["CMD-SHELL", "curl --fail http://localhost:8080/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5173:8080"
+
   postgres:
     image: postgres:16
     container_name: stc-gym-postgres
@@ -6,6 +27,11 @@ services:
       POSTGRES_USER: gymuser
       POSTGRES_PASSWORD: gympass
       POSTGRES_DB: stc_gym_logger
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U gymuser -d stc_gym_logger"]
+      interval: 5s
+      timeout: 5s
+      retries: 10
     ports:
       - "5432:5432"
     volumes:
