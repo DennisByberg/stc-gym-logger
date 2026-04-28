@@ -11,6 +11,12 @@ services:
       ASPNETCORE_URLS: http://+:8080
       ApplyMigrations: "true"
       ConnectionStrings__DefaultConnection: Host=postgres;Port=5432;Database=stc_gym_logger;Username=gymuser;Password=gympass
+    healthcheck:
+      test:
+        ["CMD-SHELL", "curl --fail http://localhost:8080/api/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
     ports:
       - "5173:8080"
 
