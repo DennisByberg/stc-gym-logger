@@ -2,16 +2,18 @@
   <ion-router-outlet></ion-router-outlet>
 
   @if (!isMenuOpen()) {
-    <button
-      class="menu-button"
-      type="button"
-      aria-label="Open menu"
-      (click)="openMenu()"
-    >
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
+    <header class="app-header">
+      <button
+        class="menu-button"
+        type="button"
+        aria-label="Open menu"
+        (click)="openMenu()"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </header>
   }
 
   @if (isMenuOpen()) {

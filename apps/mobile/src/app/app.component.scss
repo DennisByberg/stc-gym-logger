@@ -10,6 +10,16 @@ ion-app {
   min-height: 100vh;
 }
 
+.app-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 68px;
+  background: transparent;
+  z-index: 1000;
+}
+
 .menu-button {
   position: absolute;
   top: 16px;
@@ -22,7 +32,6 @@ ion-app {
   padding: 0;
   border: 0;
   background: transparent;
-  z-index: 1000;
 }
 
 .menu-button span {
